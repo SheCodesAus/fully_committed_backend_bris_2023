@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'her_profiles.apps.HerProfilesConfig',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
