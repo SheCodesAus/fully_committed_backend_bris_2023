@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import HerProfile, Location
-from .serializers import HerProfileSerializer, LocationSerializer
+from .models import HerProfile, Location, Skills
+from .serializers import HerProfileSerializer, LocationSerializer, SkillsSerializer
 from django.http import Http404
 from rest_framework import status, permissions
 
@@ -65,5 +65,12 @@ class LocationList(APIView):
 
     def get(self, request):
         location = Location.objects.all()
-        serializer = LocationSerializer(location, many=True)
+        serializer = LocationSerializer(location, many=False)
+        return Response(serializer.data)
+    
+class SkillList(APIView):
+
+    def get(self, request):
+        skill = Skills.objects.all()
+        serializer = LocationSerializer(skill, many=True)
         return Response(serializer.data)
