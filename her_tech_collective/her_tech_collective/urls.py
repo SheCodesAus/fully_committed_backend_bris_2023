@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('profiles/', include('her_profiles.urls')),
     path('profiles/<int:pk>/', views.HerProfileDetail.as_view())
+    path('account/', include('users.urls')),
 ]
