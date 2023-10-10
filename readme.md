@@ -15,7 +15,7 @@
 2. Create and activate a `venv`
 3. Install dependencies with `pip install -r requirements.txt`
 
-## FinallyG:
+## Finally:
 1. One group member should make a push replacing this readme text with the skeleton of your readme document.
 2. All other group members should pull down this change (`git pull origin main`)
 
