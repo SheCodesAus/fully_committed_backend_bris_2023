@@ -10,11 +10,13 @@ RUN mkdir -p /code
 WORKDIR /code
 
 COPY requirements.txt /tmp/requirements.txt
+
 RUN set -ex && \
     pip install --upgrade pip && \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
-COPY hertechcollective /code
+
+COPY hertechcollective/ /code/
 
 ENV SECRET_KEY "HS9WvV3AOPFHt4sQgPj4DKVhAMHHe2Wb7g4csBUN33xET6d4EC"
 
