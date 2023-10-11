@@ -16,7 +16,7 @@ RUN set -ex && \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
 
-COPY hertechcollective/ /code/
+COPY her_tech_collective /code
 
 ENV SECRET_KEY "HS9WvV3AOPFHt4sQgPj4DKVhAMHHe2Wb7g4csBUN33xET6d4EC"
 
