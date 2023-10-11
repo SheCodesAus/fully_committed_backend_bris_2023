@@ -15,6 +15,7 @@ class HerProfileList(APIView):
 
 
     def post(self, request):
+        # request.user
         serializer = HerProfileSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -29,7 +30,7 @@ class HerProfileList(APIView):
 
 
 class HerProfileDetail(APIView):
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_object(self, pk):
         try:

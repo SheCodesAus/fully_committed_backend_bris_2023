@@ -8,16 +8,20 @@ class LocationSerializer(serializers.ModelSerializer):
         model = Location
         fields='__all__'
 
-class HerProfileSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = apps.get_model('her_profiles.HerProfile')
-        fields = '__all__'
-
-
 class SkillsSerializer(serializers.ModelSerializer):
     skills=serializers.ReadOnlyField(source='skills.id')
 
     class Meta:
         model = Skills        
         fields = '__all__'
+
+
+class HerProfileSerializer(serializers.ModelSerializer):
+    location=LocationSerializer(many=False, read_only=True)
+    skills=SkillsSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = apps.get_model('her_profiles.HerProfile')
+        fields = '__all__'
+
+

@@ -28,9 +28,8 @@ class HerProfile(models.Model):
     location = models.ForeignKey(
         Location, 
         on_delete=models.CASCADE, null=True)
-    skills = models.ForeignKey(
-        Skills, 
-        on_delete=models.CASCADE, null=True)
+    skills = models.ManyToManyField(
+        Skills, null=True)
     owner = models.CharField(max_length=200, null=True)
 
     
