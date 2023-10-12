@@ -29,7 +29,7 @@ class HerProfile(models.Model):
         Location, 
         on_delete=models.CASCADE, null=True)
     skills = models.ManyToManyField(
-        Skills, null=True)
+        Skills)
     owner = models.CharField(max_length=200, null=True)
 
     
