@@ -21,6 +21,7 @@ COPY her_tech_collective /code
 ENV SECRET_KEY "HS9WvV3AOPFHt4sQgPj4DKVhAMHHe2Wb7g4csBUN33xET6d4EC"
 
 RUN python manage.py collectstatic --noinput
+
 RUN chmod +x /code/run.sh
 
 EXPOSE 8000
