@@ -1,3 +1,13 @@
 from django.contrib import admin
+from her_profiles.models import Location, Skills
 
-# Register your models here.
+
+class LocationAdmin(admin.ModelAdmin):
+    pass
+
+class SkillsAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Location, LocationAdmin)
+
+admin.site.register(Skills, SkillsAdmin)
