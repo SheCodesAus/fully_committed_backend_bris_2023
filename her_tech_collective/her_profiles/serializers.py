@@ -13,8 +13,10 @@ class SkillsSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class HerProfileSerializer(serializers.ModelSerializer):
-    location = LocationSerializer(many=False)
+    location=LocationSerializer(many=False)
     skills = serializers.PrimaryKeyRelatedField(many=True, queryset=Skills.objects.all())
+    owner = serializers.ReadOnlyField(source='owner.id')
+
     class Meta:
         model = HerProfile
         fields = '__all__'

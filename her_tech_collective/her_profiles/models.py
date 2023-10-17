@@ -28,6 +28,8 @@ class HerProfile(models.Model):
     bio = models.TextField()
     is_active = models.BooleanField()
     date_created = models.DateTimeField(default=timezone.now)
-    owner = models.CharField(max_length=200, null=True)
+    skills = models.ManyToManyField(
+        Skills)
+    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='owned_profiles')
 
     
