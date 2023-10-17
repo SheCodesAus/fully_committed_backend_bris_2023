@@ -30,6 +30,6 @@ class HerProfile(models.Model):
         on_delete=models.CASCADE, null=True)
     skills = models.ManyToManyField(
         Skills)
-    owner = models.CharField(max_length=200, null=True)
+    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='owned_profiles')
 
     

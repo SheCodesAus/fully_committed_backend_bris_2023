@@ -19,6 +19,7 @@ class SkillsSerializer(serializers.ModelSerializer):
 class HerProfileSerializer(serializers.ModelSerializer):
     location=LocationSerializer(many=False, read_only=True)
     skills=SkillsSerializer(many=True, read_only=True)
+    owner = serializers.ReadOnlyField(source='owner.id')
 
     class Meta:
         model = apps.get_model('her_profiles.HerProfile')
