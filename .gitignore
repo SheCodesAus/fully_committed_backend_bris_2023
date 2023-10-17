@@ -160,3 +160,6 @@ cython_debug/
 #.idea/
 
 staticfiles
+
+# my test code
+zz_*
