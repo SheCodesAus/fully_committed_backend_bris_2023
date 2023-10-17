@@ -1,5 +1,5 @@
 from django.contrib import admin
-from her_profiles.models import Location, Skills
+from .models import HerProfile, Location, Skills
 
 
 class LocationAdmin(admin.ModelAdmin):
@@ -11,3 +11,5 @@ class SkillsAdmin(admin.ModelAdmin):
 admin.site.register(Location, LocationAdmin)
 
 admin.site.register(Skills, SkillsAdmin)
+
+admin.site.register(HerProfile)

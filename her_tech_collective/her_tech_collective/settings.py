@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get(
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get("DJANGO_DEBUG", "False") != "False"
+DEBUG = True
+# DEBUG = os.environ.get("DJANGO_DEBUG", "False") != "False"
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -53,7 +53,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

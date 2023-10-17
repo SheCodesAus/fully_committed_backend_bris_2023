@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import HerProfile, Location, Skills
-from .serializers import HerProfileSerializer, LocationSerializer, SkillsSerializer
+from .models import HerProfile
+from .serializers import HerProfileSerializer
 from django.http import Http404
 from rest_framework import status, permissions
 
@@ -30,7 +30,7 @@ class HerProfileList(APIView):
 
 
 class HerProfileDetail(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_object(self, pk):
         try:
@@ -62,16 +62,16 @@ class HerProfileDetail(APIView):
         her_profile.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-class LocationList(APIView):
+# class LocationList(APIView):
 
-    def get(self, request):
-        location = Location.objects.all()
-        serializer = LocationSerializer(location, many=False)
-        return Response(serializer.data)
+#     def get(self, request):
+#         location = Location.objects.all()
+#         serializer = LocationSerializer(location, many=False)
+#         return Response(serializer.data)
     
-class SkillList(APIView):
+# class SkillList(APIView):
 
-    def get(self, request):
-        skill = Skills.objects.all()
-        serializer = LocationSerializer(skill, many=True)
-        return Response(serializer.data)
+#     def get(self, request):
+#         skill = Skills.objects.all()
+#         serializer = LocationSerializer(skill, many=True)
+#         return Response(serializer.data)
