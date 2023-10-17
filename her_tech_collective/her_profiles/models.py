@@ -7,7 +7,7 @@ class Skills(models.Model):
     skill_name = models.CharField(max_length=200, null=True) 
 
     def __str__(self) -> str:
-        return f'{self.skill_name, self.skill_slug}'
+        return f'{self.skill_name}'
 
 class Location(models.Model):
     location_name = models.CharField(max_length=200, null=True) 
