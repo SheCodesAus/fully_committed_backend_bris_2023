@@ -7,7 +7,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('', views.HerProfileList.as_view()),
-    # path('location', views.LocationList.as_view()),
+    
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
