@@ -30,7 +30,18 @@ class CustomUserDetail(APIView):
         user = self.get_object(pk)
         serializer = CustomUserSerializer(user)
         return Response(serializer.data)
-    
+
+class CustomUserByUsername(APIView):
+    def get_object(self, username):
+        try:
+            return CustomUser.objects.get(username=username)
+        except CustomUser.DoesNotExist:
+            raise Http404
+    def get(self, request, username):
+        user = self.get_object(username)
+        serializer = CustomUserSerializer(user)
+        return Response(serializer.data)
+
 class CustomUserCreate(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
