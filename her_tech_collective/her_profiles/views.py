@@ -7,7 +7,7 @@ from rest_framework import status, permissions
 
 
 class HerProfileList(APIView):
-
+    
     def get(self, request):
         her_profile = HerProfile.objects.all()
         serializer = HerProfileSerializer(her_profile, many=True)
@@ -17,8 +17,9 @@ class HerProfileList(APIView):
     def post(self, request):
         # request.user
         serializer = HerProfileSerializer(data=request.data)
+        
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(owner=request.user)
             return Response(
                 serializer.data,
                 status=status.HTTP_201_CREATED
