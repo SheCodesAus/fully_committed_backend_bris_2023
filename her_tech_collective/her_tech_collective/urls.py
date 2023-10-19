@@ -9,6 +9,7 @@ urlpatterns = [
     path('profiles/', include('her_profiles.urls')),
     path('profiles/<int:pk>/', views.HerProfileDetail.as_view()),
     path('account/', include('users.urls')),
+    # path('api-auth/', include('rest_framework.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('location/', views.LocationList.as_view()),
