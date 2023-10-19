@@ -7,6 +7,7 @@ from .models import CustomUser
 from .serializers import CustomUserSerializer
 
 class CustomUserList(APIView):
+    
     def post(self, request):
         serializer = CustomUserSerializer(data=request.data)
         if serializer.is_valid():

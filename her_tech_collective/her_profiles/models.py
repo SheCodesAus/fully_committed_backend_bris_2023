@@ -19,8 +19,14 @@ class HerProfile(models.Model):
     location = models.ForeignKey(
         Location,
         on_delete=models.CASCADE,
-        null=True)
+        null=True
+        )
     skills = models.ManyToManyField(Skills)
+    owner = models.ForeignKey(
+        get_user_model(), 
+        on_delete=models.CASCADE, 
+        related_name='owned_profiles'
+        )
     profile_name = models.CharField(max_length=200, null=True) 
     job_title = models.TextField()
     linkedin_url = models.URLField()
@@ -30,6 +36,6 @@ class HerProfile(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
     skills = models.ManyToManyField(
         Skills)
-    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='owned_profiles')
+    
 
     
