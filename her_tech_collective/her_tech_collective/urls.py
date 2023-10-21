@@ -14,5 +14,5 @@ urlpatterns = [
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('location/', views.LocationList.as_view()),
     path('skills/', views.SkillsList.as_view()),
-    path('account/', include('users.urls')),
+   
 ]
