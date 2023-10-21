@@ -34,7 +34,7 @@ class HerProfileSerializer(serializers.ModelSerializer):
     # skills = serializers.PrimaryKeyRelatedField(many=True, queryset=Skills.objects.all())
     # owner = serializers.ReadOnlyField(source='owner.id') 
     # read_only=True
-    owner = CustomUserSerializer() 
+    owner = CustomUserSerializer(read_only=True) 
 
     class Meta:
         model = HerProfile
@@ -63,7 +63,16 @@ class HerProfileSerializer(serializers.ModelSerializer):
             for skill_data in skills_data:
                 skill_dict = {"id": skill_data.id, "skill_name": skill_data.skill_name}
                 skill, created = Skills.objects.get_or_create(**skill_dict) 
-                instance.skills.add(skill) 
+                instance.skills.add(skill)
+        # instance.profile_name = validated_data['']
+        # print('validated_data', validated_data)
+        # print('instance', instance.job_title)
+        instance.job_title = validated_data['job_title']
+        instance.profile_name = validated_data['profile_name']
+        instance.linkedin_url=validated_data['linkedin_url']
+        instance.image_url=validated_data['image_url']
+        instance.bio=validated_data['bio']
+        instance.is_active=validated_data['is_active']
         instance.save() 
         return instance
 
