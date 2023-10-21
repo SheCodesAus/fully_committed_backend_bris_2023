@@ -37,5 +37,8 @@ class HerProfile(models.Model):
     skills = models.ManyToManyField(
         Skills)
     
+    def __str__(self):
+        return self.profile_name
+    
 
     
